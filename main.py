@@ -1,6 +1,7 @@
 from fcfs import fcfs
-from utils import calculate_metrics
-from utils import calculate_metrics, print_table
+from utils import calculate_metrics, print_table, gantt_chart, averages
+
+
 def get_processes():
     n = int(input("Enter number of processes: "))
     processes = []
@@ -19,13 +20,21 @@ def get_processes():
     return processes
 
 
+# Main Execution
 processes = get_processes()
 
+# Run FCFS
 result = fcfs(processes)
 
+# Calculate metrics
 result = calculate_metrics(result)
 
+# Display results
 print("\nAfter FCFS Scheduling:")
-for p in result:
-    print(p)
-    print_table(result)
+print_table(result)
+
+# Show Gantt Chart
+gantt_chart(result)
+
+# Show averages
+averages(result)
