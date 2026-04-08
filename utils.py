@@ -14,13 +14,13 @@ def print_table(processes):
 def gantt_chart(processes):
     print("\nGantt Chart:")
 
-    # Print process order
+    # Process order
     print("|", end="")
     for p in processes:
         print(f" {p['id']} |", end="")
     print()
 
-    # Print timeline
+    # Timeline
     print("0", end="")
     for p in processes:
         print(f"   {p['ct']}", end="")

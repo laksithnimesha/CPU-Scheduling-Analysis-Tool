@@ -1,4 +1,5 @@
 from fcfs import fcfs
+from sjf import sjf
 from utils import calculate_metrics, print_table, gantt_chart, averages
 
 
@@ -23,18 +24,30 @@ def get_processes():
 # Main Execution
 processes = get_processes()
 
-# Run FCFS
-result = fcfs(processes)
+print("\n1. FCFS")
+print("2. SJF")
+
+choice = int(input("Choose algorithm: "))
+
+if choice == 1:
+    result = fcfs(processes)
+
+elif choice == 2:
+    result = sjf(processes)
+
+else:
+    print("Invalid choice!")
+    exit()
 
 # Calculate metrics
 result = calculate_metrics(result)
 
 # Display results
-print("\nAfter FCFS Scheduling:")
+print("\nScheduling Result:")
 print_table(result)
 
-# Show Gantt Chart
+# Gantt chart
 gantt_chart(result)
 
-# Show averages
+# Averages
 averages(result)

@@ -5,14 +5,14 @@ def fcfs(processes):
     time = 0
 
     for p in processes:
-        # If CPU is idle, jump to arrival time
+        # If CPU is idle
         if time < p["at"]:
             time = p["at"]
 
         # Execute process
         time += p["bt"]
 
-        # Set Completion Time
+        # Completion time
         p["ct"] = time
 
     return processes
